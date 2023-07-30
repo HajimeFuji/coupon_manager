@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <div class="list-container">
+        <div class="coupon-wrap">
+            <!-- DBのレコード件数分カードを追加する -->
+            {% for task in task_list %}
+            <div class="card">
+                <p class="shop">{{task["shop"]}}</p>
+                <p class="coupon">{{task["coupon"]}}</p>
+                <!-- ここに有効期限 -->
+                <div class="icon-wrap">
+                    <a href="" class="circle"><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}
