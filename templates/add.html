@@ -1,18 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
+
     <div class="coupon-container">
         <form action="/add" method="POST" class="form">
             <div class="input-item">
-                <label for="shop">店名</label>
-                <input type="text" id="shop" name="shop">
-                <label for="coupon">クーポン名</label>
-                <input type="text" id="coupon" name="coupon">
+
+                <div id="container">
+
+                    <table>
+                      <tr>
+                            <th>店名</th>
+                            <td><input type="text" /></td>
+                      </tr>
+                      <tr>
+                         <th>クーポン名</th>
+                            <td><input type="password" /></td>
+                      </tr>
+                      <tr>
+                        <th>有効期限</th>
+                           <td><input type="password" /></td>
+                     </tr>
+                    </table>
+                </div>
+
+                <!-- <div class="item">
+                    <label for="shop">店名</label>
+                    <label for="coupon">クーポン名</label>
+                    <label for="coupon">有効期限</label>
+                </div> -->
+
                 <!-- ここに有効期限のラベルと入力欄 -->
+                <!-- <div class="item">
+                    <input type="text" id="shop" name="shop">
+                    <input type="text" id="coupon" name="coupon">
+                    <input type="text" id="time" name="time">
+                </div> -->
+
             </div>
             <!-- ここにキャンセルボタン -->
-            <input type="submit" value="新規登録" class="btn btn-primary">
+            <div class="primary">
+                <input type="submit" value="キャンセル" class="btn btn-primary">
+                <input type="submit" value="クーポン追加" class="btn btn-primary">
+            </div>
         </form>
     </div>
+
 </main>
 {% endblock %}
