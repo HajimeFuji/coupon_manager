@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
+    <h1>{{user_name}}さんのクーポンリスト</h1>
     <div class="list-container">
         <div class="coupon-wrap">
             <!-- DBのレコード件数分カードを追加する -->
-            <!-- {% for task in task_list %} -->
+            {% for item in coupon_list %}
             <div class="card">
-                <p class="shop"><!--{{task["shop"]}}--></p>
-                <p class="coupon"><!--{{task["coupon"]}}--></p>
+                <p class="shop">{{item["shop_name"]}}</p>
+                <p class="coupon">{{item["coupon_name"]}}</p>
                 <!-- ここに有効期限 -->
+                <p class="expiration">有効期限：{{item["expiration"]}}</p>
                 <div class="icon-wrap">
                     <a href="" class="circle"><i class="fa-solid fa-trash"></i></a>
                 </div>
