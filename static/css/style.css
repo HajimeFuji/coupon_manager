@@ -17,3 +17,162 @@ input {
     border-radius: 4px;
 }
 /* --------------------------------------- */
+
+/* ヘッダー */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    padding: 0 10%;
+    background-color: #ff4538;
+}
+
+.app-title{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+.menu-link{
+    color: #ffffff;
+} 
+
+/* フォーム */
+.form{
+    padding: 20px;
+    border-top-left-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0px 1px 6px #b7b6b6;
+    height: 140px;
+    width: 300px;
+    margin: 10%;
+    font-size: 12px;
+}
+
+/* .item{
+    padding: 0px 5px;
+} */
+
+.item label{
+    padding: 5px;
+}
+
+.from .btn{
+    margin: 0;
+    margin-top: 60px;
+}
+
+.input-item{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-item input{
+    height: 20px;
+    width: 150px;
+}
+
+.input-item label{
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* ボタンスタイル */
+.btn{
+    display: block;
+    margin: 30px auto;
+    border-radius: 4px;
+    border: none;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover{
+    opacity: 0.7;
+}
+
+.btn-primary{
+    background-color: #ff4538;
+    color: #fff;
+    margin: 0px 20px;
+    width: 80px;
+    height: 20px;
+}
+
+.primary{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-secondary{
+    border: 1px solid #ff3548;
+    background-color: #fff;
+    color: #ff4538;
+}
+
+.task-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+}
+
+/* list.html */
+.page-head{
+    margin-top: 120px;
+    margin-bottom: 60px;
+    color: #ff3548;
+    font-size: 24px;
+    text-align: center;
+}
+
+.list-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 90px;
+}
+
+.card-wrap{
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card{
+    width: 100%;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 6px #cccccc;
+}
+
+.task-title{
+    margin-bottom: 15px;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.icon-wrap{
+    display: flex;
+    column-gap: 12px;
+    justify-content: end;
+}
+
+.circle{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #ff3548;
+    text-align: center;
+    line-height: 32px;
+}
+
+.fa-pen,.fa-trash{
+    color: #ffffff;
+    font-size: 14px;
+}

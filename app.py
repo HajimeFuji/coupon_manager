@@ -1,63 +1,54 @@
+# flaskモジュールからflaskクラスをインポート
+from flask import Flask,render_template,request,redirect
+# sqlite3をインポート
 import sqlite3
-from flask import Flask, render_template, request, redirect, session
+# Flaskクラスをインスタント化してapp変数に代入
 app = Flask(__name__)
 
-# セッション情報を暗号化するために必要
-app.secret_key = "sunabaco"
-
 @app.route("/")
-def top_page():
-    return render_template("index.html")
+def index():
+    # テンプレートを表示する
+    return render_template("base.html")
 
-# ログイン入力情報からidを取得する
-@app.route("/", methods=["POST"])
-def login_post():
-    name = request.form.get("name")
-    password = request.form.get("password")
-    conn = sqlite3.connect("coupon_manager.db")
+@app.route("/add")
+def add_get():
+    return render_template("add.html")
+
+@app.route("/add",methods=["post"]) 
+def add_post():
+    # 入力フォームからデータを取得する
+    task = request.form.get("task")
+    print(task)
+    # 2.データベースに接続する
+    conn = sqlite3.connect("myTask.db")
+    # 3.データベースを操作するための準備
     c = conn.cursor()
-    c.execute("select id from users where user_name = ? and password = ?", (name, password))
-    user_id = c.fetchone()
+    # 4.SQLを実行してDBにデータを送る
+    c.execute("insert into task values (null,?)",(task,))
+    # 5.データベースの更新(保存)をする
+    conn.commit()
+    # 6.データベースの接続を終了する
     c.close()
-    if user_id is None:
-        return render_template("index.html")
-    else:
-        session["user_id"] = user_id
-        return redirect("/list")
+    # リダイレクトでルーティングに飛ばす
+    return redirect("/list")
 
-# DBのテーブル情報をリストとして返す
 @app.route("/list")
-def coupon_list():
-    if "user_id" in session:
-        # セッション情報からログインユーザーのidを取得する
-        user_id = session["user_id"][0]
-        print(user_id)
-        conn = sqlite3.connect("coupon_manager.db")
-        c = conn.cursor()
-        # ログインユーザーの名前を取得
-        c.execute("select user_name from users where id = ?", (user_id,))
-        user_name = c.fetchone()[0]
-        # couponテーブルからレコードを全て選択
-        c.execute("select id, coupon_name, shop_name, expiration from coupon where user_flag = ?", (user_id,))
-        coupon_list = []
-        for row in c.fetchall():
-            print("-------------")
-            print(row)
-            print("-------------")
-            coupon_list.append({"coupon_name": row[1], "shop_name": row[2], "expiration": row[3]})
-        c.close()
-        print(coupon_list)
-        return render_template("list.html", user_name = user_name, coupon_list = coupon_list)
-    else:
-        return redirect("/")
+def list_get():
+    # conn = sqlite3.connect("myTask.db")
+    # c = conn.cursor()
+    # c.execute("select id,task from task")
+    # # データを格納する配列を準備
+    # task_list = []
+    # # c.fetchall()で指定したDBレコードを条件取得する
+    # for row in c.fetchall():
+    #     # 取得したレコードを辞書型に変換して、task_listに追加する
+    #     task_list.append({"id":row[0],"task":row[1]})
+    # c.close()
+    # print(task_list)    
+    return render_template("list.html")
+    #                                ↑task_list = task_list
 
-
-
-# 404ページを返す
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('404.html'), 404
-
-
+# スクリプトとして直接実行した場合
 if __name__ == "__main__":
-    app.run(debug=True)
+    # FlaskのWEBアプリケーションを起動
+    app.run(debug=True, port=5002)
