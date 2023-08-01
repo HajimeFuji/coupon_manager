@@ -12,10 +12,11 @@
                 <!-- ここに有効期限 -->
                 <p class="expiration">有効期限：{{item["expiration"]}}</p>
                 <div class="icon-wrap">
-                    <a href="" class="circle"><i class="fa-solid fa-trash"></i></a>
+                    <a href="/del/{{item['id']}}" class="circle"><i class="fa-solid fa-trash"></i></a>
                 </div>
             </div>
             {% endfor %}
+            <a href="/add">クーポン追加</a>
         </div>
     </div>
 </main>
