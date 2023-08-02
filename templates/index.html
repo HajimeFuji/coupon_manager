@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クーポンガーディアン</title>
-</head>
+{% extends "base.html" %}
+{% block content %}
 <body>
-    <h1>TOPログイン</h1>
-    <form action="/" method="POST">
-        名前：<input type="text" name="name">
-        パスワード：<input type="password" name="password">
-        <input type="submit" name="save" value="ログイン">
+    <form action="/" method="POST" class="form">
+        <div class="input-item">
+
+            <table>
+                <tr>
+                      <th class="name">名前</th>
+                      <td><input type="text" class="input-user"></td>
+                </tr>
+                <tr>
+                      <th class="name">パスワード</th>
+                      <td><input type="password" class="input-user"></td>
+                </tr>
+            </table>
+            
+        </div>
+    
+        <!-- 名前<input type="text" name="name">
+        パスワード<input type="password" name="password"> -->
+        <div class="primary">
+            <input type="submit" value="ログイン" class="btn btn-primary">
+            <input type="submit" value="新規登録" class="btn btn-primary">
+        </div>
+
     </form>
 </body>
-</html>
+{% endblock %}

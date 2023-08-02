@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    <h1>{{user_name}}さんのクーポンリスト</h1>
     <div class="list-container">
         <div class="coupon-wrap">
             <!-- DBのレコード件数分カードを追加する -->
@@ -9,6 +8,7 @@
             <div class="card">
                 <p class="shop">{{item["shop_name"]}}</p>
                 <p class="coupon">{{item["coupon_name"]}}</p>
+
                 <!-- ここに有効期限 -->
                 <p class="expiration">有効期限：{{item["expiration"]}}</p>
                 <div class="icon-wrap">
