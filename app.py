@@ -1,5 +1,6 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, session
+from datetime import datetime
 app = Flask(__name__)
 
 # セッション情報を暗号化するために必要
@@ -37,8 +38,8 @@ def coupon_list():
         # ログインユーザーの名前を取得
         c.execute("select user_name from users where id = ?", (user_id,))
         user_name = c.fetchone()[0]
-        # couponテーブルからレコードを全て選択
-        c.execute("select id, coupon_name, shop_name, expiration from coupon where user_flag = ?", (user_id,))
+        # couponテーブルからレコードを全て選択（order by expirationで日付を昇順にソート）
+        c.execute("select id, coupon_name, shop_name, expiration from coupon where user_flag = ? order by expiration", (user_id,))
         coupon_list = []
         for row in c.fetchall():
             print("-------------")
