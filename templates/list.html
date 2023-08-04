@@ -6,11 +6,11 @@
             <!-- DBのレコード件数分カードを追加する -->
             {% for item in coupon_list %}
             <div class="card">
-                <d class="coupon-info">
+                <div class="coupon-info">
                     <p class="shop">{{item["shop_name"]}}</p>
                     <p class="coupon">{{item["coupon_name"]}}</p>
                     <p class="expiration">有効期限：{{item["expiration"]}}</p>
-                </d>
+                </div>
                 <div class="icon-wrap">
                     <a href="#" class="circle"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
                     <a href="/del/{{item['id']}}" class="circle"><i class="fa-solid fa-trash"></i></a>
