@@ -137,6 +137,8 @@ input {
 
 .list-container{
     display: flex;
+    flex-direction: column;
+    row-gap: 30px;
     align-items: center;
     justify-content: center;
     /* margin-bottom: 90px; */
@@ -167,6 +169,12 @@ input {
     justify-content: space-between;
 }
 
+.coupon-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
 .task-title{
     margin-bottom: 15px;
     color: #333333;
@@ -187,13 +195,13 @@ input {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #ff4538;
+    background-color: #ffc331;
     text-align: center;
     line-height: 32px;
 }
 
 .fa-pen,.fa-trash{
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size: 14px;
 }
 
