@@ -2,6 +2,7 @@
 {% block content %}
 <main>
     <div class="list-container">
+        <h2 class="username-head">{{user_name}}さんのクーポン一覧</h2>
         <div class="coupon-wrap">
             <!-- DBのレコード件数分カードを追加する -->
             {% for item in coupon_list %}
