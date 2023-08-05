@@ -98,24 +98,41 @@ def logout():
 
 
 
-# クーポンの内容を編集（時間あったら実装）
-# @app.route("/edit", methods=["POST"])
-# def update_coupon():
-#     if "user_id" in session:
-#         # 変更するtaskの固有idを取得
-#         item_id = request.form.get("task_id")
-#         # request.form.get()は文字列型で取得されるため、数値型に変換。
-#         item_id = int(item_id)
-#         # 変更後のtaskの内容を取得
-#         task = request.form.get("task")
-#         conn = sqlite3.connect("coupon_manager.db")
-#         c = conn.cursor()
-#         c.execute("update coupon_name, shop_name, expiration set task = ? where id = ?", (task, item_id))
-#         conn.commit()
-#         c.close()
-#         return redirect("/list")
-#     else:
-#         return redirect("/login")
+# クーポンの内容を編集
+# ①編集画面を開く
+@app.route("/edit/<int:id>")
+def edit_get(id):
+    if "user_id" in session:
+        conn = sqlite3.connect("coupon_manager.db")
+        c = conn.cursor()
+        c.execute("select id, coupon_name, shop_name, expiration from coupon where id = ?", (id,))
+        item = c.fetchone()
+        c.close()
+        coupon_info = {"id": id, "coupon_name": item[1], "shop_name": item[2], "expiration": item[3]}
+        print(coupon_info)
+        return render_template("edit.html", coupon_info = coupon_info)
+    else:
+        return redirect("/login")
+
+# ②編集内容を反映する
+@app.route("/edit", methods=["POST"])
+def update_coupon():
+    if "user_id" in session:
+        coupon_id = request.form.get("coupon_id")
+        # request.form.get()は文字列型で取得されるため、数値型に変換
+        coupon_id = int(coupon_id)
+        # 変更後のクーポン情報を取得
+        shop_name = request.form.get("shop_name")
+        coupon_name = request.form.get("coupon_name")
+        expiration = request.form.get("expiration")
+        conn = sqlite3.connect("coupon_manager.db")
+        c = conn.cursor()
+        c.execute("update coupon set coupon_name = ?, shop_name = ?, expiration = ? where id = ?", (coupon_name, shop_name, expiration, coupon_id))
+        conn.commit()
+        c.close()
+        return redirect("/list")
+    else:
+        return redirect("/login")
 
 # 404ページを返す
 @app.errorhandler(404)

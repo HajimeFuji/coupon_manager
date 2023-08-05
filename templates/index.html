@@ -1,20 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<body>
+<main>
     <form action="/" method="POST" class="form">
         <div class="input-item">
-
             <table>
                 <tr>
-                      <th class="name">名前</th>
-                      <td><input type="text" name="name" class="input-user"></td>
+                    <th class="name">名前</th>
+                    <td><input type="text" name="name" class="input-user"></td>
                 </tr>
                 <tr>
-                      <th class="name">パスワード</th>
-                      <td><input type="password" name="password" class="input-user"></td>
+                    <th class="name">パスワード</th>
+                    <td><input type="password" name="password" class="input-user"></td>
                 </tr>
             </table>
-            
         </div>
     
         <!-- 名前<input type="text" name="name">
@@ -25,5 +23,5 @@
         </div>
 
     </form>
-</body>
+</main>
 {% endblock %}

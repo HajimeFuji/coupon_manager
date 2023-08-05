@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <div class="coupon-container">
+        <form action="/edit" method="POST" class="form">
+            <div class="input-item">
+                <div id="container">
+                    <input type="hidden" value="{{coupon_info['id']}}" name="coupon_id">
+                    <table>
+                      <tr>
+                            <th class="name">店名</th>
+                            <td><input type="text" name="shop_name" class="input" value="{{coupon_info['shop_name']}}"></td>
+                      </tr>
+                      <tr>
+                            <th class="name">クーポン名</th>
+                            <td><input type="text" name="coupon_name" class="input" value="{{coupon_info['coupon_name']}}"></td>
+                      </tr>
+                      <tr>
+                            <th class="name">有効期限</th>
+                            <td><input type="date" name="expiration" class="input" value="{{coupon_info['expiration']}}"></td>
+                     </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="primary">
+                <a class="btn btn-primary" href="/list">キャンセル</a>
+                <input type="submit" value="編集完了" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
