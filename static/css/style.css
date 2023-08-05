@@ -151,6 +151,8 @@ input {
     background-color: #FF4538;
     text-align: center;
     line-height: 42px;
+    bottom: 20px;
+    position: fixed;
 }
 
 /* 幅を明示 */
