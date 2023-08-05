@@ -2,15 +2,16 @@
 {% block content %}
 <main>
     <div class="list-container">
+        <h2 class="username-head">{{user_name}}さんのクーポン一覧</h2>
         <div class="coupon-wrap">
             <!-- DBのレコード件数分カードを追加する -->
             {% for item in coupon_list %}
             <div class="card">
-                <p class="shop">{{item["shop_name"]}}</p>
-                <p class="coupon">{{item["coupon_name"]}}</p>
-
-                <!-- ここに有効期限 -->
-                <p class="expiration">有効期限：{{item["expiration"]}}</p>
+                <d class="coupon-info">
+                    <p class="shop">{{item["shop_name"]}}</p>
+                    <p class="coupon">{{item["coupon_name"]}}</p>
+                    <p class="expiration">有効期限：{{item["expiration"]}}</p>
+                </d>
                 <div class="icon-wrap">
                     <a href="/del/{{item['id']}}" class="circle"><i class="fa-solid fa-trash"></i></a>
                 </div>
