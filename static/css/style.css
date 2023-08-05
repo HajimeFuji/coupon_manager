@@ -145,6 +145,16 @@ input {
     margin: 50px 0;
 }
 
+/* add　ボタンスタイル */
+.fa-plus{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #FF4538;
+    text-align: center;
+    line-height: 42px;
+}
+
 /* 幅を明示 */
 .coupon-wrap{
     width: 350px;
