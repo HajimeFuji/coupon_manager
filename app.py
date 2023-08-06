@@ -26,6 +26,18 @@ def login_post():
         session["user_id"] = user_id
         return redirect("/list")
 
+# 新規登録（時間あったら実装）
+# @app.route("/regist", methods=["POST"])
+# def regist_post():
+#     name = request.form.get("name")
+#     password = request.form.get("password")
+#     conn = sqlite3.connect("coupon_manager.db")
+#     c = conn.cursor()
+#     c.execute("insert into users values (null, ?, ?)", (name, password))
+#     conn.commit()
+#     c.close()
+#     return redirect("/")
+
 # DBのテーブル情報をリストとして返す
 @app.route("/list")
 def coupon_list():
@@ -95,8 +107,6 @@ def logout():
     # セッションを削除してログアウト
     session.pop("user_id", None)
     return redirect("/")
-
-
 
 # クーポンの内容を編集
 # ①編集画面を開く
