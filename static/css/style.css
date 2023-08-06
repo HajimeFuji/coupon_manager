@@ -20,19 +20,19 @@ input {
 
 /* ヘッダー */
 .header{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    padding: 0 10%;
+    background-color: #ff4538; */
+
     height: 80px;
     width: 100%;
     background-color: #ff4538;
     position: fixed;
     top: 0;
-}
-
-.header-container{
-    max-width: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
 }
 
 .app-title{
@@ -44,22 +44,17 @@ input {
 
 .menu-link{
     color: #ffffff;
-}
+} 
 
-main{
-    margin-top: 130px;
-}
-
-/* index.html */
 /* フォーム */
 .form{
-    /* padding: 20px 20px 20px 35px; */
-    padding: 20px;
-    width: 300px;
-    margin: 50px auto;
+    padding: 20px 20px 20px 35px;
     border-top-left-radius: 4px;
     background-color: #fff;
     box-shadow: 0px 1px 6px #b7b6b6;
+    height: 140px;
+    width: 300px;
+    margin: 10%;
     font-size: 12px;
 }
 
@@ -69,7 +64,6 @@ main{
 
 .input{
     margin: 2px 10px;
-    margin: 5px 0 5px 5px;
 }
 
 .item label{
@@ -82,11 +76,9 @@ main{
 }
 
 .input-item{
-    margin-bottom: 20px;
-}
-
-.input-item table{
-    margin: 0 auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .input-item input{
@@ -97,16 +89,6 @@ main{
 .input-item label{
     display: block;
     margin-bottom: 4px;
-}
-
-.input-item .name{
-    line-height: 30px;
-}
-
-.input-user{
-    height: 20px;
-    width: 150px;
-    margin: 5px 0 5px 5px;
 }
 
 /* ボタンスタイル */
@@ -125,19 +107,16 @@ main{
 .btn-primary{
     background-color: #ff4538;
     color: #fff;
-    margin: 0px 10px;
+    margin: 0px 20px;
     padding:0px 5px;
     width: 85px;
     height: 20px;
     text-align: center;
-    line-height: 20px;
 }
 
 .primary{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0 20px;
 }
 
 .btn-secondary{
@@ -173,21 +152,6 @@ main{
 }
 
 /* add　ボタンスタイル */
-.btn-fixed{
-    position: fixed;
-    bottom: 20px;
-    width: 360px;
-}
-
-.plus{
-    width: 42px;
-    margin-left: auto;
-}
-
-.plus a{
-    display: block;
-}
-
 .fa-plus{
     width: 42px;
     height: 42px;
@@ -255,6 +219,13 @@ main{
 }
 
 .fa-pen,.fa-trash{
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size: 14px;
+}
+
+/* index.html */
+.input-user{
+    height: 20px;
+    width: 150px;
+    margin: 5px;
 }
