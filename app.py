@@ -1,5 +1,8 @@
+#!/usr/local/bin/python3
+
 import sqlite3
 from flask import Flask, render_template, request, redirect, session
+# from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 app = Flask(__name__)
 
@@ -150,4 +153,5 @@ def page_not_found(error):
     return render_template('404.html'), 404
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
+    # app.run(debug=True)
