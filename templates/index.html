@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    <form action="/" method="POST" class="form">
-        <div class="input-item">
-            <table>
-                <tr>
-                    <th class="name">名前</th>
-                    <td><input type="text" name="name" class="input-user"></td>
-                </tr>
-                <tr>
-                    <th class="name">パスワード</th>
-                    <td><input type="password" name="password" class="input-user"></td>
-                </tr>
-            </table>
-        </div>
+    <section class="loginbox">
+        <form action="/" method="POST" class="form">
+            <div class="input-item">
+                <table>
+                    <tr>
+                        <th class="name">名前</th>
+                        <td><input type="text" name="name" class="input-user"></td>
+                    </tr>
+                    <tr>
+                        <th class="name">パスワード</th>
+                        <td><input type="password" name="password" class="input-user"></td>
+                    </tr>
+                </table>
+            </div>
 
-        <div class="primary">
-            <input type="submit" value="ログイン" class="btn btn-primary">
-            <input type="submit" value="新規登録" class="btn btn-primary">
-        </div>
-
-    </form>
+            <div class="primary">
+                <input type="submit" value="ログイン" class="btn btn-primary">
+                <input type="submit" value="新規登録" class="btn btn-primary">
+            </div>
+        </form>
+    </section>
 </main>
 {% endblock %}
